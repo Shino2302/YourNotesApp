@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YourNotesApp.Login">
+    <ContentPage.Resources>
+        <Style TargetType="Entry">
+            <Setter Property="PlaceholderColor" Value="#000"/>
+            <Setter Property="TextColor" Value="#000"/>
+            <Setter Property="Margin" Value="100,0,100,0"/>
+        </Style>
+        <Style TargetType="Button">
+            <Style.Triggers>
+                <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                    <Setter Property="TextColor" Value="#22F"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout BackgroundColor="#ACF">
+        <Grid>
+            <Label Text="Login"
+               TextColor="#FFF"
+               HorizontalOptions="CenterAndExpand"
+               Margin="2,50,0,0"
+               Padding="0,5,0,0"
+               FontSize="70"
+               FontAttributes="Bold,Italic"/>
+            <Label Text="Login"
+               TextColor="#000"
+               HorizontalOptions="CenterAndExpand"
+               Margin="0,50,0,0"
+               FontSize="70"
+               FontAttributes="Bold,Italic"/>
+        </Grid>
+        <Frame Margin="25,80,25,5"
+               CornerRadius="30"
+               HasShadow="False">
+            <Grid Padding="-80,0">
+                <Entry Placeholder="Email"
+                       Grid.Row="0"/>
+                <Entry Placeholder="Password"
+                       IsPassword="True"
+                       Grid.Row="1"/>
+                <Button Text="Ingresar"
+                        BackgroundColor="#FEC"
+                        TextColor="#000"
+                        Grid.Row="2"
+                        CornerRadius="10"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        FontAttributes="Bold"
+                        Padding="80,12"/>
+            </Grid>
+        </Frame>
+        <Frame Margin="25,0,25,0"
+               CornerRadius="30"
+               HasShadow="False">
+            <Grid>
+                <Button Text="¿Haz olvidado tu contraseña?"
+                        TextColor="#000"
+                        FontAttributes="Bold,Italic"
+                        HorizontalOptions="Center"
+                        TextTransform="None"
+                        FontSize="16"
+                        BackgroundColor="Transparent"
+                        ClassId="BtnsAccess"
+                        Grid.Row="0"/>
+                <Button Text="¿No Tienes Cuenta? Registrate!"
+                        TextColor="#000"
+                        FontAttributes="Bold,Italic"
+                        HorizontalOptions="Center"
+                        BackgroundColor="Transparent"
+                        TextTransform="None"
+                        ClassId="BtnsAccess"
+                        FontSize="16"
+                        Grid.Row="1"/>
+            </Grid>
+        </Frame>
+    </StackLayout>
+</ContentPage>

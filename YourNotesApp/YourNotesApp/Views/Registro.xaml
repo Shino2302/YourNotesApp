@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YourNotesApp.Views.Registro">
+    <ContentPage.Resources>
+        <Style TargetType="Entry">
+            <Setter Property="PlaceholderColor" Value="#000"/>
+            <Setter Property="TextColor" Value="#000"/>
+            <Setter Property="Margin" Value="100,0,100,0"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#ACF">
+            <Grid>
+                <Label Text="Registro"
+           TextColor="#FFF"
+           HorizontalOptions="CenterAndExpand"
+           Margin="2,50,0,0"
+           Padding="0,5,0,0"
+           FontSize="70"
+           FontAttributes="Bold,Italic"/>
+                <Label Text="Registro"
+           TextColor="#000"
+           HorizontalOptions="CenterAndExpand"
+           Margin="0,50,0,0"
+           FontSize="70"
+           FontAttributes="Bold,Italic"/>
+            </Grid>
+            <Frame Margin="25,80,25,5"
+           CornerRadius="30"
+           HasShadow="False">
+                <Grid Padding="-80,0">
+                    <Entry Placeholder="Email"
+                   Grid.Row="0"/>
+                    <Entry Placeholder="Password"
+                   IsPassword="True"
+                   Grid.Row="1"/>
+                    <Button Text="Registrar"
+                    BackgroundColor="#FEC"
+                    TextColor="#000"
+                    Grid.Row="2"
+                    CornerRadius="10"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    FontAttributes="Bold"
+                    Padding="80,12"/>
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
