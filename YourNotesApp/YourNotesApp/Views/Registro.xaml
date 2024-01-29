@@ -13,37 +13,55 @@
         <StackLayout BackgroundColor="#ACF">
             <Grid>
                 <Label Text="Registro"
-           TextColor="#FFF"
-           HorizontalOptions="CenterAndExpand"
-           Margin="2,50,0,0"
-           Padding="0,5,0,0"
-           FontSize="70"
-           FontAttributes="Bold,Italic"/>
+                       TextColor="#FFF"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="2,50,0,0"
+                       Padding="0,5,0,0"
+                       FontSize="70"
+                       FontAttributes="Bold,Italic"/>
                 <Label Text="Registro"
-           TextColor="#000"
-           HorizontalOptions="CenterAndExpand"
-           Margin="0,50,0,0"
-           FontSize="70"
-           FontAttributes="Bold,Italic"/>
+                       TextColor="#000"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="0,50,0,0"
+                       FontSize="70"
+                       FontAttributes="Bold,Italic"/>
             </Grid>
             <Frame Margin="25,80,25,5"
-           CornerRadius="30"
-           HasShadow="False">
+                   CornerRadius="30"
+                   HasShadow="False">
                 <Grid Padding="-80,0">
-                    <Entry Placeholder="Email"
-                   Grid.Row="0"/>
-                    <Entry Placeholder="Password"
-                   IsPassword="True"
-                   Grid.Row="1"/>
+                    <ScrollView Grid.Row="0">
+                        <ScrollView.Content>
+                            <Grid>
+                                <Entry Grid.Row="0"
+                                       Placeholder="Nombre"
+                                       Text="{Binding Nombre}"/>
+                                <Entry Grid.Row="1"
+                                       Placeholder="Apellido"
+                                       Text="{Binding Apellido}"/>
+                                <Entry Grid.Row="2"
+                                       Placeholder="Nombre De Usuario"
+                                       Text="{Binding NombreDeUsuario}"/>
+                                <Entry Placeholder="Email"
+                                       Grid.Row="3"
+                                       Text="{Binding Email}"/>
+                                <Entry Placeholder="Password"
+                                       IsPassword="True"
+                                       Grid.Row="4"
+                                       Text="{Binding Password}"/>
+                            </Grid>
+                        </ScrollView.Content>
+                    </ScrollView>
                     <Button Text="Registrar"
-                    BackgroundColor="#FEC"
-                    TextColor="#000"
-                    Grid.Row="2"
-                    CornerRadius="10"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    FontAttributes="Bold"
-                    Padding="80,12"/>
+                            BackgroundColor="#FEC"
+                            TextColor="#000"
+                            Grid.Row="1"
+                            CornerRadius="10"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            FontAttributes="Bold"
+                            Padding="80,12"
+                            Command="{Binding RegistrarUsuarioCommand}"/>
                 </Grid>
             </Frame>
         </StackLayout>

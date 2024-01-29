@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-
+using YourNotesApp.ViewModel;
 namespace YourNotesApp
 {
     public partial class Login : ContentPage
@@ -13,6 +13,7 @@ namespace YourNotesApp
         public Login()
         {
             InitializeComponent();
+            BindingContext = new ViewModelLogin(Navigation);
         }
     }
 }

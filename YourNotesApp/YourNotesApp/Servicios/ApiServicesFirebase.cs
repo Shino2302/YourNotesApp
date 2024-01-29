@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -57,6 +58,76 @@ namespace YourNotesApp.Servicios
             {
                 string t = ex.Message;
                 return usuarioObtenido;
+            }
+        }
+
+        public static async Task<Dictionary<string, Notas>> ObtenerListaDeNotas()
+        {
+            Dictionary<string, Notas> oObejeto = new Dictionary<string, Notas>();
+            try
+            {
+                HttpClient cliente = new HttpClient();
+                string apiUrlFormat = string.Concat(AppSettings.ApiFirebase, "notas/{0}.json?auth={1}");
+                var response = await cliente.GetAsync(string.Format(apiUrlFormat, AppSettings.oAuthentication.IdToken));
+                if (response.StatusCode.Equals(HttpStatusCode.OK))
+                {
+                    var cadenaJson = await response.Content.ReadAsStringAsync();
+                    if(cadenaJson != null)
+                    {
+                        oObejeto = JsonConvert.DeserializeObject<Dictionary<string, Notas>>(cadenaJson);
+                    }
+                    return oObejeto;
+                }
+                else
+                {
+                    return oObejeto;
+                }
+            }
+            catch(Exception ex)
+            {
+                string t = ex.Message;
+                return oObejeto;
+            }
+        }
+        public static async Task<bool> AgregarNota(Notas oNota)
+        {
+            Usuario oObjeto = new Usuario();
+            try
+            {
+                HttpClient cliente = new HttpClient();
+                var body = JsonConvert.SerializeObject(oNota);
+                var contenido = new StringContent(body, Encoding.UTF8, "application/{0}.json?auth={1}");
+
+                string apiFormat = string.Concat(AppSettings.ApiFirebase, "notas/{0}.json?auth={1}");
+                var response = await cliente.PostAsync(string.Format(apiFormat, AppSettings.oAuthentication.LocalId, AppSettings.oAuthentication.IdToken), contenido);
+                if (response.StatusCode.Equals(HttpStatusCode.OK))
+                    return true;
+                else
+                    return false;
+            }
+            catch(Exception ex)
+            {
+                string t = ex.Message;
+                return false;
+            }
+        }
+        public static async Task<bool> EliminarNota(string IdNota)
+        {
+            Usuario oObjeto = new Usuario();
+            try
+            {
+                HttpClient cliente = new HttpClient();
+                string apiFormat = string.Concat(AppSettings.ApiFirebase, "notas/{0}/{1}.json?auth={2}");
+                var response = await cliente.DeleteAsync(string.Format(apiFormat, AppSettings.oAuthentication.LocalId, IdNota, AppSettings.oAuthentication.IdToken));
+                if (response.StatusCode.Equals(HttpStatusCode.OK))
+                    return true;
+                else
+                    return false;
+            }
+            catch(Exception ex)
+            {
+                string t = ex.Message;
+                return false;
             }
         }
 

@@ -37,10 +37,12 @@
                HasShadow="False">
             <Grid Padding="-80,0">
                 <Entry Placeholder="Email"
-                       Grid.Row="0"/>
+                       Grid.Row="0"
+                       Text="{Binding Email}"/>
                 <Entry Placeholder="Password"
                        IsPassword="True"
-                       Grid.Row="1"/>
+                       Grid.Row="1"
+                       Text="{Binding Password}"/>
                 <Button Text="Ingresar"
                         BackgroundColor="#FEC"
                         TextColor="#000"
@@ -49,7 +51,8 @@
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
                         FontAttributes="Bold"
-                        Padding="80,12"/>
+                        Padding="80,12"
+                        Command="{Binding IngresarCommand}"/>
             </Grid>
         </Frame>
         <Frame Margin="25,0,25,0"

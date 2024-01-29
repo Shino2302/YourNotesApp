@@ -11,7 +11,7 @@ namespace YourNotesApp
         {
             InitializeComponent();
 
-            MainPage = new Registro();
+            MainPage = new NavigationPage(new Registro());
         }
 
         protected override void OnStart()
